@@ -196,7 +196,7 @@ const SignUpScreen = ({navigation}) => {
                 <TouchableOpacity
                     style={styles.signIn}
                     onPress={() => {
-                        console.log(typeof signUp, "-signingUp: ", data);
+                       
                        signUp({userName:data.username, password:data.password})
                     }}
                 >

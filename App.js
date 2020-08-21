@@ -114,13 +114,12 @@ const loginReducer = (prevState, action) => {
 },
 
 signUp : async(foundUser) => {
-  console.log(/*typeof db.signUp,*/"signing up....");
-	/*db.signUp(foundUser.userName, foundUser.password).then(async(userToken) => {
+	db.signUp(foundUser.userName, foundUser.password).then(async(userToken) => {
 		if(userToken){
 			await AsyncStorage.setItem("userToken", userToken);
       	dispatch({type: "LOGIN", id:foundUser.userName, token:userToken});
     }
-  })*/
+  })
 },
 toggleTheme:()=>{
   setIsDarkTheme(isDarkTheme => !isDarkTheme);

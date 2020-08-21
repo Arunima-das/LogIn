@@ -91,11 +91,13 @@ const {signIn} = React.useContext(AuthContext);
 }
 
 const loginHandle = (userName, password) => {
-	console.log(userName, password, db, typeof db);
 	db.signIn(userName, password).then(result => {
 		if(result){
 			signIn({username:userName, password, userToken:result});
-		}
+        }
+        else{
+            alert("Wrong username or password");
+        }
 	})
 }
 
