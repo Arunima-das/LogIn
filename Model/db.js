@@ -11,11 +11,15 @@ export async function signUp(username, password){
 }
 
 export async function signIn(username, password){
-	const docs = (await db.collection("users").where("username", "==", username)).docs.map(doc => doc.data());
-	if(docs.length>0){
+	const docs = (await db.collection("users").where("username", "==", username)).docs?.map(doc => doc.data());
+	if(docs && docs.length>0){
 		if(docs[0].password===password){
 			return docs[0].id;
 		}
 	}
 	return false;
 }
+
+const functions = {signUp, signIn};
+
+export default functions;
